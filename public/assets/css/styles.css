@@ -3772,7 +3772,7 @@ textarea.form-control-lg {
   height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(160, 160, 160, 0.15);
 }
 
 .dropdown-item {
@@ -3986,7 +3986,7 @@ textarea.form-control-lg {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+.nav-tabs .nav-link, .nav-tabs .nav-link:focus {
   border-color: #e9ecef #e9ecef #dee2e6;
   isolation: isolate;
 }
@@ -4795,6 +4795,7 @@ textarea.form-control-lg {
   padding: 0 0;
   margin-bottom: 1rem;
   list-style: none;
+  color: white;
 }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -7819,6 +7820,19 @@ textarea.form-control-lg {
 
 .text-opacity-100 {
   --bs-text-opacity: 1;
+}
+
+.bg-login{
+  margin: 0;
+  background-image: url("../img/carousel-2.jpg");
+  /* background-color: #e9f4fb; */
+  height: 100%;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
 }
 
 .bg-primary {
@@ -11698,4 +11712,50 @@ body {
   width: 20px !important;
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
+}
+
+.active-nav{
+  color: white;
+  background-color: var(--bs-blue);
+}
+
+.divider{
+  border-top: 3px solid #bbb;
+}
+
+.mb-cus{
+  margin-top: 500rem !important;
+}
+
+.gg-piano {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 23px;
+  height: 18px;
+  border: 2px solid;
+  border-radius: 2px
+}
+.gg-piano::after,
+.gg-piano::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  height: 10px;
+  background: currentColor;
+  box-shadow:
+      5px 0 0,
+      10px 0 0
+}
+.gg-piano::before {
+  top: -2px;
+  width: 3px;
+  left: 3px
+}
+.gg-piano::after {
+  width: 1px;
+  bottom: -2px;
+  left: 4px
 }

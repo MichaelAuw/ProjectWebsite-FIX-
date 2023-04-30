@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WebController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,48 +16,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->group(function (){
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    });
+Route::group(['middleware' => ['auth']], function() {
+    Route::prefix('admin')->group(function (){
 
-    Route::get('/charts', function () {
-        return view('charts');
-    });
-
-    Route::get('/tables', function () {
-        return view('tables');
+        Route::get('/dashboard',function(){
+            return view('dashboard');
+        });
     });
 });
 
-Route::prefix('guest')->group(function (){
 
-    Route::get('/login', function () {
-        return view('login');
-    });
+Route::resource('/portfolios', \App\Http\Controllers\PortfolioControl::class);
 
-    Route::get('/register', function () {
-        return view('register');
-    });
-});
+Route::resource('admin/MyPortfolio', \App\Http\Controllers\MyPortfolioControl::class);
 
-Route::prefix('user')->group(function (){
+Route::resource('admin/Skill', \App\Http\Controllers\SkillControl::class);
 
-    Route::get('/home', function () {
-        return view('index');
-    });
-});
+Route::resource('admin/Education', \App\Http\Controllers\EducationControl::class);
 
-// Route::get('/admin/dashboard', [App\Http\Controllers\WebController::class, 'admin']);
+Route::resource('admin/Interest', \App\Http\Controllers\InterestControl::class);
 
-// Route::get('/admin/charts', [App\Http\Controllers\WebController::class, 'charts']);
+Route::resource('admin/Contact', \App\Http\Controllers\ContactControl::class);
 
-// Route::get('/admin/tables', [App\Http\Controllers\WebController::class, 'tables']);
+Route::resource('admin/Message', \App\Http\Controllers\MessageControl::class);
+
+Route::get('/user/home', [App\Http\Controllers\WebController::class, 'home']);
+
+Route::get('/user/about', [App\Http\Controllers\WebController::class, 'about']);
+
+Route::get('/user/education', [App\Http\Controllers\WebController::class, 'education']);
+
+Route::get('/user/interests', [App\Http\Controllers\WebController::class, 'interests']);
+
+Route::get('/user/contact', [App\Http\Controllers\WebController::class, 'contact']);
+
 
 Auth::routes([
     'register' => false,
     'confirm' => false,
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
