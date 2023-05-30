@@ -34,7 +34,10 @@
                             <th style="width:5%">Action</th>
                         </tr>
                         <tr>
-                            <td><input type="text" name="inputs[0][Link]" placeholder="Enter Name" class="form-control"></td>
+                            <td>
+                                <input type="text" name="inputs[0][Link]" placeholder="Enter Link" class="form-control">
+                                <h6 class="px-2 small text-secondary">Note: Don't Include "https://"</h6>
+                            </td>
                             <td><select class="form-select" aria-label="Default select example" name="inputs[0][SocialMedia]">
                                 <option selected>Select the social media...</option>
                                 <option value="bi bi-instagram">Instagram</option>
@@ -59,7 +62,8 @@
                 $('#table').append(
                     '<tr>\
                         <td>\
-                            <input type="text" name="inputs['+i+'][Link]" placeholder="Enter Name" class="form-control">\
+                            <input type="text" name="inputs['+i+'][Link]" placeholder="Enter Lin" class="form-control">\
+                            <h6 class="px-2 small text-secondary">Note: Don\'t Include "https://"</h6>\
                         </td>\
                         <td>\
                             <select class="form-select" aria-label="Default select example" name="inputs['+i+'][SocialMedia]">\

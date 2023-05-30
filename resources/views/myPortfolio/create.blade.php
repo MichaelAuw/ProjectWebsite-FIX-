@@ -32,6 +32,15 @@
                             <input type="text" class="form-control" placeholder="Enter Name" name='name'>
                         </div>
                         <div class="mb-3">
+                            <label class="mb-2">Category</label>
+                            <select class="form-select" aria-label="Default select example" name="Category">
+                                <option selected>Select the Category...</option>
+                                @foreach ($data as $index => $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label class="mb-2">About</label>
                             <textarea class="form-control" rows="5" name="about"></textarea>
                         </div>

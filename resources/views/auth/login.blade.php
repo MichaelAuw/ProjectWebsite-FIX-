@@ -44,13 +44,6 @@
                                                             </span>
                                                         @enderror
                                                     </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    
-                                                        <label class="form-check-label" for="remember">
-                                                            {{ __('Remember Me') }}
-                                                        </label>
-                                                    </div>
                                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                         @if (Route::has('password.request'))
                                                             <a class="btn btn-link" href="{{ route('password.request') }}">

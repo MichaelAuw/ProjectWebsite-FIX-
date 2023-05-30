@@ -29,7 +29,8 @@
                     @method('put')
                         <div class="mb-3">
                             <label>Link</label>
-                            <input type="text" class="form-control" placeholder="Enter title" name='Link' value="{{ $data->Link}}">
+                            <input type="text" class="form-control" placeholder="Enter link" name='Link' value="{{ $data->Link}}">
+                            <h6 class="px-2 small text-secondary">Note: Don't Include "https://"</h6>
                         </div>
                         <div class="mb-3">
                             <label>Social Media</label>

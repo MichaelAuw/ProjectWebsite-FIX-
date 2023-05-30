@@ -15,7 +15,7 @@
             <div class="card-body">
                 <h5 class="card-title mb-3">List Portfolio</h5>
 
-                <a href="{{ route('MyPortfolio.create') }}" class="btn btn-primary mb-2">Add</a>
+                <a href="{{ route('MyPortfolio.create') }}" class="btn btn-outline-dark bi bi-plus-circle mb-2"> Add</a>
 
                 <table class="table table-hover table-bordered">
                     <thead>
@@ -23,6 +23,7 @@
                             <th>No</th>
                             <th>Image</th>
                             <th>Background Image</th>
+                            <th>Category</th>
                             <th>Name</th>
                             <th>About</th>
                             <th>Profile</th>
@@ -37,6 +38,7 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td><center><img src="{{ asset($item->image_file_url) }}" alt="" width="200"></center></td>
                                 <td><center><img src="{{ asset($item->home_image) }}" alt="" width="200"></center></td>
+                                <td>{{ $item->category->name }}</td>
                                 <td>{{ $item->Name }}</td>
                                 <td>{{ $item->About }}</td>
                                 <td>{{ $item->Profile }}</td>

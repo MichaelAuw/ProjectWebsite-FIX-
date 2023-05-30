@@ -57,11 +57,15 @@
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link {{ request()->is('admin/MyPortfolio*') ? 'active active-nav' : '' }}" href="{{ route('MyPortfolio.index') }}">
+                        <a class="nav-link {{ request()->is('admin/MyPortfolio*') ? 'active active-nav' : '' }}" href="{{ route('MyPortfolio.index') }}">
                             <i class="bi bi-person {{ request()->is('admin/MyPortfolio*') ? 'active-nav' : '' }}"></i>
                             <span class="px-2">Biodata</span>
                         </a>
-                            <a class="nav-link {{ request()->is('admin/Skill*') ? 'btn-primary text-white' : '' }}" href="{{ route('Skill.index') }}">
+                        <a class="nav-link {{ request()->is('admin/Category*') ? 'active active-nav' : '' }}" href="{{ route('Category.index') }}">
+                            <i class="bi bi-person {{ request()->is('admin/Category*') ? 'active-nav' : '' }}"></i>
+                            <span class="px-2">Category</span>
+                        </a>
+                        <a class="nav-link {{ request()->is('admin/Skill*') ? 'btn-primary text-white' : '' }}" href="{{ route('Skill.index') }}">
                             <i class="bi bi-code {{ request()->is('admin/Skill*') ? 'text-white' : '' }}"></i>
                             <span class="px-2">Skill</span>
                         </a>

@@ -2,26 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Http\Requests\AddMyPortfolioRequest;
+use App\Http\Requests\DeleteMyPortfolioRequest;
+use App\Http\Requests\UpdateMyPortfolioRequest;
 use App\Models\myPortfolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class MyPortfolioControl extends Controller
+class ApiControl extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $data = myPortfolio::all();
-        return view('Myportfolio.index',compact('data'));
+        return response($data);
     }
 
     /**
@@ -29,35 +25,20 @@ class MyPortfolioControl extends Controller
      */
     public function create()
     {
-        $data = Category::all();
-        return view('MyPortfolio.create',compact('data'));
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddMyPortfolioRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'about' => 'required',
-            'Category' => 'required',
-            'profile' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'image_file' => 'required',
-            'image_home' => 'required',
-        ],
-    );
-
-
         $imagePath = $request->file('image_file')->store('uploads',['disk' => 'public']);
         $imagePath2 = $request->file('image_home')->store('uploads',['disk' => 'public']);
 
         $newMyPortfolio = new myPortfolio();
         $newMyPortfolio->name = $request->name;
         $newMyPortfolio->about = $request->about;
-        $newMyPortfolio->category_id = $request->Category;
         $newMyPortfolio->profile = $request->profile;
         $newMyPortfolio->email = $request->email;
         $newMyPortfolio->phone = $request->phone;
@@ -65,7 +46,7 @@ class MyPortfolioControl extends Controller
         $newMyPortfolio->home_image = '/storage/' . $imagePath2;
         $newMyPortfolio->save();
 
-        return redirect()->route('MyPortfolio.index');
+        return response("successfully add portfolio");
     }
 
     /**
@@ -81,23 +62,14 @@ class MyPortfolioControl extends Controller
      */
     public function edit(string $id)
     {
-        $data = myPortfolio::findOrFail($id);
-        return view('MyPortfolio.edit',compact('data'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateMyPortfolioRequest $request, string $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'about' => 'required',
-            'profile' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-        ]);
-
         $MyPortfolio = myPortfolio::findOrFail($id);
 
         
@@ -128,17 +100,17 @@ class MyPortfolioControl extends Controller
         $MyPortfolio->phone = $request->phone;
         $MyPortfolio->save();
 
-        return redirect()->route('MyPortfolio.index');
+        return response('Update portfolio success');
     }
 
     /**
-     * ReMove the specified resource from storage.
+     * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(DeleteMyPortfolioRequest $request, string $id)
     {
         $MyPortfolio = myPortfolio::findOrFail($id);
         $MyPortfolio->delete();
 
-        return redirect()->route('MyPortfolio.index');
+        return response('Delete portfolio success');
     }
 }

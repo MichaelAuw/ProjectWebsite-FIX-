@@ -31,6 +31,8 @@ Route::resource('/portfolios', \App\Http\Controllers\PortfolioControl::class);
 
 Route::resource('admin/MyPortfolio', \App\Http\Controllers\MyPortfolioControl::class);
 
+Route::resource('admin/Category', \App\Http\Controllers\categoryControl::class);
+
 Route::resource('admin/Skill', \App\Http\Controllers\SkillControl::class);
 
 Route::resource('admin/Education', \App\Http\Controllers\EducationControl::class);
@@ -53,7 +55,7 @@ Route::get('/user/contact', [App\Http\Controllers\WebController::class, 'contact
 
 
 Auth::routes([
-    'register' => false,
+    // 'register' => false,
     'confirm' => false,
 ]);
 
