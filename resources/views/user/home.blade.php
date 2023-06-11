@@ -16,7 +16,7 @@
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
           <h1 class="hero-title mb-4">{{ $item->Name }}</h1>
-          <p class="hero-subtitle"><span class="typed" data-typed-items="Undergraduate S1, Binusian 2025, Computer Science, 2501965374"></span></p>
+          <p class="hero-subtitle"><span class="typed" data-typed-items="Computer Science, Undergraduate S1,Skills:,@foreach ($data2 as $index => $item2 ) {{ $item2->Name }},@endforeach"></span></p>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div>
       </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\myPortfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class MyPortfolioControl extends Controller
@@ -41,7 +42,6 @@ class MyPortfolioControl extends Controller
         $request->validate([
             'name' => 'required',
             'about' => 'required',
-            'Category' => 'required',
             'profile' => 'required',
             'email' => 'required',
             'phone' => 'required',
@@ -56,8 +56,9 @@ class MyPortfolioControl extends Controller
 
         $newMyPortfolio = new myPortfolio();
         $newMyPortfolio->name = $request->name;
+        $newMyPortfolio->user_id =  Auth::user()->id;
         $newMyPortfolio->about = $request->about;
-        $newMyPortfolio->category_id = $request->Category;
+        // $newMyPortfolio->category_id = $request->Category;
         $newMyPortfolio->profile = $request->profile;
         $newMyPortfolio->email = $request->email;
         $newMyPortfolio->phone = $request->phone;
@@ -82,7 +83,8 @@ class MyPortfolioControl extends Controller
     public function edit(string $id)
     {
         $data = myPortfolio::findOrFail($id);
-        return view('MyPortfolio.edit',compact('data'));
+        $data2 = Category::all();
+        return view('MyPortfolio.edit',compact('data','data2'));
     }
 
     /**
@@ -122,6 +124,7 @@ class MyPortfolioControl extends Controller
 
         }
         $MyPortfolio->name = $request->name;
+        $MyPortfolio->user_id =  Auth::user()->id;
         $MyPortfolio->about = $request->about;
         $MyPortfolio->profile = $request->profile;
         $MyPortfolio->email = $request->email;

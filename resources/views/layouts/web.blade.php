@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
     {{-- <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>@yield('title')</title>
@@ -62,7 +63,7 @@
                             <span class="px-2">Biodata</span>
                         </a>
                         <a class="nav-link {{ request()->is('admin/Category*') ? 'active active-nav' : '' }}" href="{{ route('Category.index') }}">
-                            <i class="bi bi-person {{ request()->is('admin/Category*') ? 'active-nav' : '' }}"></i>
+                            <i class="bi bi-bookmark {{ request()->is('admin/Category*') ? 'active-nav' : '' }}"></i>
                             <span class="px-2">Category</span>
                         </a>
                         <a class="nav-link {{ request()->is('admin/Skill*') ? 'btn-primary text-white' : '' }}" href="{{ route('Skill.index') }}">
@@ -72,6 +73,10 @@
                         <a class="nav-link {{ request()->is('admin/Education*') ? 'btn-primary text-white' : '' }}" href="{{ route('Education.index') }}">
                             <i class="bi bi-mortarboard {{ request()->is('admin/Education*') ? 'text-white' : '' }}"></i>
                             <span class="px-2">Education</span>
+                        </a>
+                        <a class="nav-link {{ request()->is('admin/Subject*') ? 'btn-primary text-white' : '' }}" href="{{ route('Subject.index') }}">
+                            <i class="bi bi-book {{ request()->is('admin/Subject*') ? 'text-white' : '' }}"></i>
+                            <span class="px-2">Subject</span>
                         </a>
                         <a class="nav-link {{ request()->is('admin/Interest*') ? 'btn-primary text-white' : '' }}" href="{{ route('Interest.index') }}">
                             <i class="fa-solid fa-person-running  {{ request()->is('admin/Interest*') ? 'text-white' : '' }}"></i>
@@ -123,6 +128,10 @@
       <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
       <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
       <script src="{{ asset('assets/js/datatables-simple-demo.js') }}"></script>
+      <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+      <script>
+        let table = new DataTable('.datatables');
+      </script>
       @yield('js')
 </body>
 </html>

@@ -15,6 +15,6 @@ class Category extends Model
 
     public function myPortfolio(): HasMany
     {
-        return $this->hasMany(myPortfolio::class);
+        return $this->hasMany(subject::class);
     }
 }

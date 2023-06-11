@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\education;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
+use App\Models\subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class EducationControl extends Controller
+class subjectControl extends Controller
 {
     public function __construct()
     {
@@ -17,10 +19,16 @@ class EducationControl extends Controller
      * Display a listing of the resource.
      */
 
-    public function index()
+    public function index(Request $request)
     {
-        $data = education::all();
-        return view('Education.index',compact('data'));
+        $data = subject::all();
+        $data2 = Category::all();
+
+        if($request->category){
+            $data = subject::with('category')->where('category_id',$request->category)->get();
+        }
+
+        return view('Subject.index',compact('data','data2'));
     }
 
     /**
@@ -28,7 +36,8 @@ class EducationControl extends Controller
      */
     public function create()
     {
-        return view('Education.create');
+        $data = Category::all();
+        return view('Subject.create',compact('data'));
     }
 
     /**
@@ -37,13 +46,15 @@ class EducationControl extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'inputs.*.education' => 'required',
+            'inputs.*.Subject' => 'required',
+            'inputs.*.Category' => 'required',
             'inputs.*.description' => 'required',
             'inputs.*.DateFrom' => 'required',
             'inputs.*.DateTo' => 'required',
         ],
         [
-            'inputs.*.education' => 'Please Fill all the education field',
+            'inputs.*.Subject' => 'Please Fill all the Subject field',
+            'inputs.*.Category' => 'Please Fill all the Semester field',
             'inputs.*.description' => 'Please Fill all the description field',
             'inputs.*.DateFrom' => 'Please Fill all the from field',
             'inputs.*.DateTo' => 'Please Fill all the end field'
@@ -51,16 +62,17 @@ class EducationControl extends Controller
     );
 
         foreach($request->inputs as $key=>$value){
-            education::create([
-                'education' => $request->inputs[$key]['education'],
+            subject::create([
+                'Subject' => $request->inputs[$key]['Subject'],
+                'category_id' => $request->inputs[$key]['Category'],
                 'description' => $request->inputs[$key]['description'],
                 'DateFrom' => $request->inputs[$key]['DateFrom'],
                 'DateTo' => $request->inputs[$key]['DateTo'],
-                'user_id' =>  Auth::user()->id,
+                // 'user_id' =>  Auth::user()->id,
             ]);
         }
 
-        return redirect()->route('Education.index');
+        return redirect()->route('Subject.index');
         
     }
 
@@ -77,8 +89,9 @@ class EducationControl extends Controller
      */
     public function edit(string $id)
     {
-        $data = education::findOrFail($id);
-        return view('Education.edit',compact('data'));
+        $data = subject::findOrFail($id);
+        $data2 = Category::all();
+        return view('Subject.edit',compact('data','data2'));
     }
 
     /**
@@ -87,21 +100,23 @@ class EducationControl extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'inputs.*.Education' => 'required',
+            'inputs.*.Subject' => 'required',
+            'inputs.*.Category' => 'required',
             'inputs.*.Description' => 'required',
             'inputs.*.DateFrom' => 'required',
             'inputs.*.DateTo' => 'required'
         ]);
 
-        $Education = education::findOrFail($id);
-        $Education->user_id = Auth::user()->id;
-        $Education->Education = $request->Education;
-        $Education->Description = $request->Description;
-        $Education->DateFrom = $request->DateFrom;
-        $Education->DateTo = $request->DateTo;
-        $Education->save();
+        $Subject = subject::findOrFail($id);
+        // $Subject->user_id = Auth::user()->id;
+        $Subject->Subject = $request->Subject;
+        $Subject->category_id = $request->Category;
+        $Subject->Description = $request->Description;
+        $Subject->DateFrom = $request->DateFrom;
+        $Subject->DateTo = $request->DateTo;
+        $Subject->save();
 
-        return redirect()->route('Education.index');
+        return redirect()->route('Subject.index');
     }
 
     /**
@@ -109,9 +124,9 @@ class EducationControl extends Controller
      */
     public function destroy(string $id)
     {
-        $Education = education::findOrFail($id);
-        $Education->delete();
+        $Subject = subject::findOrFail($id);
+        $Subject->delete();
 
-        return redirect()->route('Education.index');
+        return redirect()->route('Subject.index');
     }
 }

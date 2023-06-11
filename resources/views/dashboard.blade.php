@@ -53,6 +53,20 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header">
+                        Subjects
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Add or Edit Existing Subject</h5>
+                        <p class="card-text">Click the button below to add or edit your Subject</p>
+                        <a href="{{ route('Subject.index') }}" class="btn btn-primary">Click Here!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
                         Interests
                     </div>
                     <div class="card-body">
@@ -62,8 +76,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header">
@@ -76,6 +88,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row mb-4">
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header">

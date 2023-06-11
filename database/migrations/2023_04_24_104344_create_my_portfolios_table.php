@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('my_portfolios', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('image_file_url');
             $table->string('home_image');
             $table->string('Name');

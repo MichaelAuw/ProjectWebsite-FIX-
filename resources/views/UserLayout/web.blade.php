@@ -24,6 +24,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('css/style.css') }}" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: DevFolio
@@ -54,6 +55,7 @@
               <li><a class="nav-link scrollto {{ Request::path() === 'user/home' ? 'active' : '' }}" href="{{ url('user/home') }}">Home</a></li>
               <li><a class="nav-link scrollto {{ Request::path() === 'user/about' ? 'active' : '' }}" href="{{ url('user/about') }}">About</a></li>
               <li><a class="nav-link scrollto {{ Request::path() === 'user/education' ? 'active' : '' }}" href="{{ url('user/education') }}">Education</a></li>
+              <li><a class="nav-link scrollto {{ Request::path() === 'user/subject' ? 'active' : '' }} " href="{{ url('user/subject') }}">Subject</a></li>
               <li><a class="nav-link scrollto {{ Request::path() === 'user/interests' ? 'active' : '' }} " href="{{ url('user/interests') }}">Interests</a></li>
               <li><a class="nav-link scrollto {{ Request::path() === 'user/contact' ? 'active' : '' }}" href="{{ url('user/contact') }}">Contact</a></li>
             </ul>
@@ -77,4 +79,5 @@
   
     <!-- Template Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
+    
 </body>

@@ -8,7 +8,7 @@ use App\Models\Interests;
 use Illuminate\Http\Request;
 use App\Models\myPortfolio;
 use App\Models\Skill;
-
+use App\Models\subject;
 
 class WebController extends Controller
 {
@@ -18,7 +18,8 @@ class WebController extends Controller
 
     public function home(Request $request){
         $data = myPortfolio::all();
-        return view('user.home',compact('data'));
+        $data2 = Skill::all();
+        return view('user.home',compact('data','data2'));
     }
 
     public function about(Request $request){
@@ -31,6 +32,24 @@ class WebController extends Controller
         $data = education::all();
         return view('user.education',compact('data'));
     }
+
+    // public function subject(Request $request){
+
+    //     if($id = 1){
+    //         $data = subject::all();  
+    //         return view('user.subject',compact('data') );
+    //     }
+    //     else{
+    //         $data = subject::query();
+
+    //         $data->when($request->name,function($query) use ($request){
+    //             return $query->whereCategory($request->Category);
+
+    //         });
+    //         return view('user.subject',compact('data') );
+    //     }
+       
+    // }
 
     public function interests(Request $request){
         $data = Interests::all();

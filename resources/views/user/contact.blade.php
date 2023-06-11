@@ -66,7 +66,7 @@
                   </div>
                   <div class="more-info">
                     <p class="lead">
-                      Hello Feel free to contact me here. Write any though you had
+                      Hello Feel free to contact me here. Write any though you had.
                       Below here is my Social media
                       You can contact me through one of the social media below
                       or you can contact me by filling the form beside

@@ -39,6 +39,8 @@ Route::resource('admin/Education', \App\Http\Controllers\EducationControl::class
 
 Route::resource('admin/Interest', \App\Http\Controllers\InterestControl::class);
 
+Route::resource('admin/Subject', \App\Http\Controllers\subjectControl::class);
+
 Route::resource('admin/Contact', \App\Http\Controllers\ContactControl::class);
 
 Route::resource('admin/Message', \App\Http\Controllers\MessageControl::class);
@@ -49,13 +51,16 @@ Route::get('/user/about', [App\Http\Controllers\WebController::class, 'about']);
 
 Route::get('/user/education', [App\Http\Controllers\WebController::class, 'education']);
 
+// Route::get('/user/subject/', [App\Http\Controllers\WebController::class, 'subject']);
+Route::resource('user/subject',\App\Http\Controllers\User\SubjectControl::class);
+
 Route::get('/user/interests', [App\Http\Controllers\WebController::class, 'interests']);
 
 Route::get('/user/contact', [App\Http\Controllers\WebController::class, 'contact']);
 
 
 Auth::routes([
-    // 'register' => false,
+    'register' => false,
     'confirm' => false,
 ]);
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Interests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class InterestControl extends Controller
@@ -45,7 +46,11 @@ class InterestControl extends Controller
     );
 
         foreach($request->inputs as $key=>$value){
-            Interests::create($value);
+            Interests::create([
+                'Interests' => $request->inputs[$key]['Interests'],
+                'Icon' => $request->inputs[$key]['Icon'],
+                'user_id' =>  Auth::user()->id,
+            ]);
         }
 
         return redirect()->route('Interest.index');
@@ -80,6 +85,7 @@ class InterestControl extends Controller
         ]);
 
         $Interests = Interests::findOrFail($id);
+        $Interests->user_id = Auth::user()->id;
         $Interests->Interests = $request->Interests;
         $Interests->Icon = $request->Icon;
         $Interests->save();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ContactControl extends Controller
@@ -45,7 +46,11 @@ class ContactControl extends Controller
     );
 
         foreach($request->inputs as $key=>$value){
-            Contact::create($value);
+            Contact::create([
+                'Link' => $request->inputs[$key]['Link'],
+                'SocialMedia' => $request->inputs[$key]['SocialMedia'],
+                'user_id' =>  Auth::user()->id,
+            ]);
         }
 
         return redirect()->route('Contact.index');
@@ -80,6 +85,7 @@ class ContactControl extends Controller
         ]);
 
         $Contact = Contact::findOrFail($id);
+        $Contact->user_id = Auth::user()->id;
         $Contact->Link = $request->Link;
         $Contact->SocialMedia = $request->SocialMedia;
         $Contact->save();

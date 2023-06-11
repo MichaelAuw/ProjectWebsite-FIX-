@@ -23,10 +23,10 @@
                             <th>No</th>
                             <th>Image</th>
                             <th>Background Image</th>
-                            <th>Category</th>
+                            {{-- <th>Category</th> --}}
                             <th>Name</th>
                             <th>About</th>
-                            <th>Profile</th>
+                            <th style="width:10%">Profile</th>
                             <th>Email</th>
                             <th>Phone</th>
                             <th style="width:20%">Action</th>
@@ -38,7 +38,8 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td><center><img src="{{ asset($item->image_file_url) }}" alt="" width="200"></center></td>
                                 <td><center><img src="{{ asset($item->home_image) }}" alt="" width="200"></center></td>
-                                <td>{{ $item->category->name }}</td>
+                                {{-- <td>{{ $item->category->name }}</td> --}}
+                                {{-- <td>{{ $item->user_id->id }}</td> --}}
                                 <td>{{ $item->Name }}</td>
                                 <td>{{ $item->About }}</td>
                                 <td>{{ $item->Profile }}</td>

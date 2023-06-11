@@ -15,9 +15,9 @@
             <div class="card-body">
                 <h5 class="card-title mb-3">List Category</h5>
 
-                <a href="{{ route('Category.create') }}" class="btn btn-primary mb-2">Add</a>
+                <a href="{{ route('Category.create') }}" class="btn btn-outline-dark bi bi-plus-circle mb-2">Add</a>
 
-                <table class="table table-hover table-bordered">
+                <table class="table table-hover table-bordered datatables">
                     <thead>
                         <tr>
                             <th>No</th>

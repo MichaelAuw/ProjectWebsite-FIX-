@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Skill;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SkillControl extends Controller
@@ -42,9 +43,13 @@ class SkillControl extends Controller
             'inputs.*.percentage' => 'Please Fill all the percentage field'
         ]
     );
-
+    
         foreach($request->inputs as $key=>$value){
-            Skill::create($value);
+            Skill::create([
+                'name' => $request->inputs[$key]['name'],
+                'percentage' => $request->inputs[$key]['percentage'],
+                'user_id' =>  Auth::user()->id,
+            ]);
         }
 
         return redirect()->route('Skill.index');
@@ -82,6 +87,7 @@ class SkillControl extends Controller
         $Skill = Skill::findOrFail($id);
         $Skill->name = $request->name;
         $Skill->percentage = $request->percentage;
+        $Skill->user_id = Auth::user()->id;
         $Skill->save();
 
         return redirect()->route('Skill.index');
