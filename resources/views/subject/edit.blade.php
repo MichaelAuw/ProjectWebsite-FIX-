@@ -7,9 +7,9 @@
         $name = "Binus"
     @endphp
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Subject</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Edit Subject</li>
+        <h1 class="text-light mt-4">Subject</h1>
+        <ol class="bg-gray-2 breadcrumb mb-4">
+            <li class="text-light breadcrumb-item active">Edit Subject</li>
         </ol>
         @if($errors->any())
         <div class="alert alert-danger">
@@ -21,19 +21,19 @@
             </ul>
         </div>
         @endif
-        <div class="card mb-3">
-            <div class="card-header bg-success text-white">Edit Subject</div>
+        <div class="bg-gray-2 text-light card mb-3">
+            <div class="card-header bg-gray-3 text-white">Edit Subject</div>
             <div class="card-body">
                 <form action="{{ route('Subject.update', $data->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                         <div class="mb-3">
                             <label class="mb-2">Subject</label>
-                            <input type="text" class="form-control" placeholder="Enter Name" name="Subject" value="{{ $data->Subject }}">
+                            <input type="text" class="bg-gray-2 text-light form-control" placeholder="Enter Name" name="Subject" value="{{ $data->Subject }}">
                         </div>
                         <div class="mb-3">
                             <label class="mb-2 font-weight-bold">Semester</label>
-                            <select class="form-select" aria-label="Default select example" name="Category">
+                            <select class="bg-gray-2 text-light form-select" aria-label="Default select example" name="Category">
                                 <option selected>Select the Category...</option>
                                 @foreach ($data2 as $index => $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -42,18 +42,18 @@
                         </div>
                         <div class="mb-3">
                             <label class="mb-2">Description</label>
-                            <textarea class="form-control" rows="5" name="Description">{{ $data->Description }}</textarea>
+                            <textarea class="bg-gray-2 text-light form-control" rows="5" name="Description">{{ $data->Description }}</textarea>
                         </div>
                         <div class="mb-3">
                             <label class="mb-2">From</label>
-                            <input type="date" class="form-control" placeholder="Enter Job" name="DateFrom" value="{{ $data->DateFrom }}">
+                            <input type="date" class="bg-gray-2 text-light form-control" placeholder="Enter Job" name="DateFrom" value="{{ $data->DateFrom }}">
                         </div>
                         <div class="mb-3">
                             <label class="mb-2">End</label>
-                            <input type="date" class="form-control" placeholder="Enter Email" name="DateTo" value="{{ $data->DateFrom}}">
+                            <input type="date" class="bg-gray-2 text-light form-control" placeholder="Enter Email" name="DateTo" value="{{ $data->DateFrom}}">
                         </div>
-                        <button type="submit" class="btn btn-success">Update</button>
-                        <a href="{{ route('Subject.index') }}" class="btn btn-warning">Return</a>
+                        <button type="submit" class="btn btn-outline-light bi bi-save"> Update</button>
+                        <a href="{{ route('Subject.index') }}" class="btn btn-outline-light bi bi-box-arrow-left"> Return</a>
                 </form>
                 
             </div>

@@ -8,9 +8,9 @@
 
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Subject</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Add Subjects</li>
+        <h1 class="text-light mt-4">Subject</h1>
+        <ol class="bg-gray-2 breadcrumb mb-4">
+            <li class="text-light breadcrumb-item active">Add Subjects</li>
         </ol>
         @if($errors->any())
         <div class="alert alert-danger">
@@ -22,23 +22,23 @@
             </ul>
         </div>
         @endif
-        <div class="card mb-3">
-            <div class="card-header bg-primary text-white">Featured</div>
+        <div class="bg-gray-2 text-light card mb-3">
+            <div class="card-header bg-gray-3 text-white">Featured</div>
             <div class="card-body">
                 <form id="product_form" action="{{ route('Subject.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <table class="table" id="table">
+                    <table class="table bg-gray-2 text-light" id="table">
                         <tr>
                             <td>
                                 <div class="mb-3">
                                     <label class="mb-2 font-weight-bold">Subject</label>
-                                    <input type="text" class="form-control" placeholder="Enter Name" name="inputs[0][Subject]">
+                                    <input type="text" class="bg-gray-2 text-light form-control" placeholder="Enter Name" name="inputs[0][Subject]">
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3">
                                     <label class="mb-2 font-weight-bold">Semester</label>
-                                    <select class="form-select" aria-label="Default select example" name="inputs[0][Category]">
+                                    <select class="bg-gray-2 text-light form-select" aria-label="Default select example" name="inputs[0][Category]">
                                         <option selected>Select the Category...</option>
                                         @foreach ($data as $index => $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -49,26 +49,26 @@
                             <td>
                                 <div class="mb-3 font-weight-bold">
                                     <label class="mb-2">Description</label>
-                                    <textarea class="form-control" rows="5" name="inputs[0][description]"></textarea>
+                                    <textarea class="bg-gray-2 text-light form-control" rows="5" name="inputs[0][description]"></textarea>
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3 font-weight-bold">
                                     <label class="mb-2">From</label>
-                                    <input type="date" class="form-control" placeholder="Enter Job" name="inputs[0][DateFrom]">
+                                    <input type="date" class="bg-gray-2 text-light form-control" placeholder="Enter Job" name="inputs[0][DateFrom]">
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3 font-weight-bold">
                                     <label class="mb-2">End</label>
-                                    <input type="date" class="form-control" placeholder="Enter Email" name="inputs[0][DateTo]">
+                                    <input type="date" class="bg-gray-2 text-light form-control" placeholder="Enter Email" name="inputs[0][DateTo]">
                                 </div>
                             </td>
                         <tr>
                     </table>
-                 <button type="submit" class="btn btn-primary col-md-2">Save</button>
-                 <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
-                 <a href="{{ route('Subject.index') }}" class="btn btn-warning">Return</a>
+                 <button type="submit" class="btn btn-outline-light bi bi-save col-1"> Save</button>
+                 <button type="button" name="add" id="add" class="btn btn-outline-light bi bi-plus-circle"> Add More</button>
+                 <a href="{{ route('Subject.index') }}" class="btn btn-outline-light bi bi-box-arrow-left"> Return</a>
             </form>
         </div>
 
@@ -81,13 +81,13 @@
                         <td>\
                             <div class="mb-3 font-weight-bold">\
                                 <label class="mb-2">Subject</label>\
-                                <input type="text" class="form-control" placeholder="Enter Name" name="inputs['+i+'][Subject]">\
+                                <input type="text" class="bg-gray-2 text-light form-control" placeholder="Enter Name" name="inputs['+i+'][Subject]">\
                             </div>\
                         </td>\
                         <td>\
                             <div class="mb-3">\
                                 <label class="mb-2 font-weight-bold">Semester</label>\
-                                <select class="form-select" aria-label="Default select example" name="inputs['+i+'][Category]">\
+                                <select class="bg-gray-2 text-light form-select" aria-label="Default select example" name="inputs['+i+'][Category]">\
                                     <option selected>Select the Category...</option>\
                                     @foreach ($data as $index => $item)\
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>\
@@ -98,19 +98,19 @@
                         <td>\
                             <div class="mb-3 font-weight-bold">\
                                 <label class="mb-2">Description</label>\
-                                <textarea class="form-control" rows="5" name="inputs['+i+'][description]"></textarea>\
+                                <textarea class="bg-gray-2 text-light form-control" rows="5" name="inputs['+i+'][description]"></textarea>\
                             </div>\
                         </td>\
                         <td>\
                             <div class="mb-3 font-weight-bold">\
                                 <label class="mb-2">From</label>\
-                                <input type="date" class="form-control" placeholder="Enter Job" name="inputs['+i+'][DateFrom]">\
+                                <input type="date" class="bg-gray-2 text-light form-control" placeholder="Enter Job" name="inputs['+i+'][DateFrom]">\
                             </div>\
                         </td>\
                         <td>\
                             <div class="mb-3 font-weight-bold">\
                                 <label class="mb-2">End</label>\
-                                <input type="date" class="form-control" placeholder="Enter Email" name="inputs['+i+'][DateTo]">\
+                                <input type="date" class="bg-gray-2 text-light form-control" placeholder="Enter Email" name="inputs['+i+'][DateTo]">\
                             </div>\
                         </td>\
                         <td>\

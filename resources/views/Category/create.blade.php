@@ -8,9 +8,9 @@
 
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Category</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Add Category</li>
+        <h1 class="text-light mt-4">Category</h1>
+        <ol class="bg-gray-2 breadcrumb mb-4">
+            <li class="text-light breadcrumb-item active">Add Category</li>
         </ol>
         @if($errors->any())
         <div class="alert alert-danger">
@@ -22,25 +22,25 @@
             </ul>
         </div>
         @endif
-        <div class="card mb-3">
-            <div class="card-header bg-primary text-white">Featured</div>
+        <div class="bg-gray-2 card mb-3">
+            <div class="card-header bg-gray-3 text-light">Featured</div>
             <div class="card-body">
                 <form id="product_form" action="{{ route('Category.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <table class="table" id="table">
+                    <table class="table bg-gray-2 text-light" id="table">
                         <tr>
                             <th>Link</th>
                             <th style="width:5%">Action</th>
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="inputs[0][Name]" placeholder="Enter Category Name" class="form-control">
+                                <input type="text" name="inputs[0][Name]" placeholder="Enter Category Name" class="bg-gray-2 text-light form-control">
                             </td>
                         </tr>
                     </table>
-                 <button type="submit" class="btn btn-primary col-md-2">Save</button>
-                 <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
-                 <a href="{{ route('Category.index') }}" class="btn btn-warning">Return</a>
+                 <button type="submit" class="btn btn-outline-light bi bi-save col-1"> Save</button>
+                 <button type="button" name="add" id="add" class="btn btn-outline-light bi bi-plus-circle"> Add More</button>
+                 <a href="{{ route('Category.index') }}" class="btn btn-outline-light bi bi-box-arrow-left"> Return</a>
             </form>
         </div>
 
@@ -51,10 +51,10 @@
                 $('#table').append(
                     '<tr>\
                         <td>\
-                            <input type="text" name="inputs['+i+'][Name]" placeholder="Enter Category Name" class="form-control">\
+                            <input type="text" name="inputs['+i+'][Name]" placeholder="Enter Category Name" class="bg-gray-2 text-light form-control">\
                         </td>\
                         <td>\
-                            <button type="button" class="px-3 btn bi bi-trash remove-table-row"></button>\
+                            <button type="button" class="text-light px-3 btn bi bi-trash remove-table-row"></button>\
                         </td>\
                     </tr>'
                 );

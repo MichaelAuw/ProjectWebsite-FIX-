@@ -8,9 +8,9 @@
 
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Contact</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Add Contact</li>
+        <h1 class="text-light mt-4">Contact</h1>
+        <ol class="bg-gray-2 breadcrumb mb-4">
+            <li class="text-light breadcrumb-item active">Add Contact</li>
         </ol>
         @if($errors->any())
         <div class="alert alert-danger">
@@ -22,12 +22,12 @@
             </ul>
         </div>
         @endif
-        <div class="card mb-3">
-            <div class="card-header bg-primary text-white">Featured</div>
+        <div class="bg-gray-2 text-light card mb-3">
+            <div class="card-header bg-gray-3 text-white">Featured</div>
             <div class="card-body">
                 <form id="product_form" action="{{ route('Contact.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <table class="table" id="table">
+                    <table class="table text-light" id="table">
                         <tr>
                             <th>Link</th>
                             <th>Social Media</th>
@@ -35,10 +35,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="inputs[0][Link]" placeholder="Enter Link" class="form-control">
-                                <h6 class="px-2 small text-secondary">Note: Don't Include "https://"</h6>
+                                <input type="text" name="inputs[0][Link]" placeholder="Enter Link" class="bg-gray-2 text-light form-control">
+                                <h6 class="text-white px-2 small text-secondary">Note: Don't Include "https://"</h6>
                             </td>
-                            <td><select class="form-select" aria-label="Default select example" name="inputs[0][SocialMedia]">
+                            <td><select class="bg-gray-2 text-light form-select" aria-label="Default select example" name="inputs[0][SocialMedia]">
                                 <option selected>Select the social media...</option>
                                 <option value="bi bi-instagram">Instagram</option>
                                 <option value="bi bi-whatsapp">WhatsApp</option>
@@ -49,9 +49,9 @@
                             </td>
                         </tr>
                     </table>
-                 <button type="submit" class="btn btn-primary col-md-2">Save</button>
-                 <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
-                 <a href="{{ route('Contact.index') }}" class="btn btn-warning">Return</a>
+                 <button type="submit" class="btn btn-outline-light bi bi-save col-1"> Save</button>
+                 <button type="button" name="add" id="add" class="btn btn-outline-light bi bi-plus-circle"> Add More</button>
+                 <a href="{{ route('Contact.index') }}" class="btn btn-outline-light bi bi-box-arrow-left"> Return</a>
             </form>
         </div>
 
@@ -62,12 +62,12 @@
                 $('#table').append(
                     '<tr>\
                         <td>\
-                            <input type="text" name="inputs['+i+'][Link]" placeholder="Enter Lin" class="form-control">\
-                            <h6 class="px-2 small text-secondary">Note: Don\'t Include "https://"</h6>\
+                            <input type="text" name="inputs['+i+'][Link]" placeholder="Enter Lin" class="bg-gray-2 text-light form-control">\
+                            <h6 class="text-white px-2 small text-secondary">Note: Don\'t Include "https://"</h6>\
                         </td>\
                         <td>\
-                            <select class="form-select" aria-label="Default select example" name="inputs['+i+'][SocialMedia]">\
-                                <option selected>Open this select menu</option>\
+                            <select class="bg-gray-2 text-light form-select" aria-label="Default select example" name="inputs['+i+'][SocialMedia]">\
+                                <option selected>Select the social media...</option>\
                                 <option value="bi bi-instagram">Instagram</option>\
                                 <option value="bi bi-whatsapp">WhatsApp</option>\
                                 <option value="bi bi-twitter">Twitter</option>\
@@ -76,7 +76,7 @@
                                 </select>\
                             </td>\
                         <td>\
-                            <button type="button" class="px-3 btn bi bi-trash remove-table-row"></button>\
+                            <button type="button" class="text-white px-3 btn bi bi-trash remove-table-row"></button>\
                         </td>\
                     </tr>'
                 );

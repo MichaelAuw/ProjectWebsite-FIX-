@@ -7,13 +7,13 @@
         $name = "Binus"
     @endphp
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Dashboard</h1>
-        <ol class="breadcrumb btn-light mb-4">
+        <h1 class="text-light mt-4">Dashboard</h1>
+        <ol class="breadcrumb btn-dark bg-gray-2 text-light mb-4">
             <li>Welcome {{ Auth::user()->name }} </li>
         </ol>
           <div class="row mb-4">
             <div class="col-sm-6">
-              <div class="card">
+              <div class="bg-gray-2 text-light card">
                 <div class="card-header">
                     Biodata
                     </div>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="card">
+                <div class="bg-gray-2 text-light card">
                     <div class="card-header">
                         Skills
                     </div>
@@ -39,7 +39,7 @@
             </div>
         <div class="row mb-4">
             <div class="col-sm-6">
-                <div class="card">
+                <div class="bg-gray-2 text-light card">
                     <div class="card-header">
                       Education
                     </div>
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="card">
+                <div class="bg-gray-2 text-light card">
                     <div class="card-header">
                         Subjects
                     </div>
@@ -65,7 +65,7 @@
         </div>
         <div class="row mb-4">
             <div class="col-sm-6">
-                <div class="card">
+                <div class="bg-gray-2 text-light card">
                     <div class="card-header">
                         Interests
                     </div>
@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="card">
+                <div class="bg-gray-2 text-light card">
                     <div class="card-header">
                       Contact
                     </div>
@@ -91,7 +91,7 @@
         </div>
         <div class="row mb-4">
             <div class="col-sm-6">
-                <div class="card">
+                <div class="bg-gray-2 text-light card">
                     <div class="card-header">
                         Message
                     </div>

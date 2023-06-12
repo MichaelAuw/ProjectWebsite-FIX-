@@ -16,11 +16,8 @@ class SubjectControl extends Controller
         $data2 = Category::all();
 
         if($request->category){
-            $data = DB::table('subjects')->where('category_id',$request->category)->get();
+            $data = subject::with('category')->where('category_id',$request->category)->get();
         }
-
-        // $data->when($request->category,function ($query) use ($request){
-        //     return $query->whereCategory($request->category);
         
         // });
         return view('user.subject',compact('data','data2'));
